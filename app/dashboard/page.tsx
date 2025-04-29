@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 
-// Types for our video items
+
 interface VideoItem {
   id: string
   url: string
@@ -23,14 +23,14 @@ export default function SongVotingPage() {
   const [queue, setQueue] = useState<VideoItem[]>([])
   const [previewVideo, setPreviewVideo] = useState<string | null>(null)
 
-  // Extract YouTube video ID from URL
+  
   const extractVideoId = (url: string) => {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/
     const match = url.match(regExp)
     return match && match[2].length === 11 ? match[2] : null
   }
 
-  // Handle input change and show preview
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const url = e.target.value
     setVideoUrl(url)
@@ -43,7 +43,7 @@ export default function SongVotingPage() {
     }
   }
 
-  // Handle video submission
+  
   const handleSubmit = () => {
     const videoId = extractVideoId(videoUrl)
 
@@ -52,7 +52,7 @@ export default function SongVotingPage() {
       return
     }
 
-    // In a real app, you would fetch video details from YouTube API
+
     const newVideo: VideoItem = {
       id: videoId,
       url: videoUrl,
@@ -66,7 +66,7 @@ export default function SongVotingPage() {
     setPreviewVideo(null)
   }
 
-  // Handle voting
+  
   const handleVote = (id: string, increment: number) => {
     setQueue(
       queue
@@ -75,7 +75,7 @@ export default function SongVotingPage() {
     )
   }
 
-  // Play next video
+ 
   const playNext = () => {
     if (queue.length > 0) {
       const nextVideo = queue[0]
@@ -84,7 +84,7 @@ export default function SongVotingPage() {
     }
   }
 
-  // Initialize with a default video if none is playing
+  
   useEffect(() => {
     if (!currentVideo && queue.length > 0) {
       playNext()
@@ -95,7 +95,7 @@ export default function SongVotingPage() {
     <div className="container mx-auto p-4 max-w-6xl">
       <h1 className="text-3xl font-bold mb-6 text-center">Stream Song Voting Queue</h1>
 
-      {/* Current playing video */}
+     
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Now Playing</h2>
         <div className="aspect-video w-full bg-black rounded-lg overflow-hidden">
@@ -119,7 +119,7 @@ export default function SongVotingPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-8">
-        {/* Submit new video */}
+     
         <div>
           <h2 className="text-xl font-semibold mb-4">Submit a Song</h2>
           <div className="flex gap-2 mb-4">
@@ -132,7 +132,7 @@ export default function SongVotingPage() {
             <Button onClick={handleSubmit}>Submit</Button>
           </div>
 
-          {/* Video preview */}
+          
           {previewVideo && (
             <div className="mt-4">
               <h3 className="text-sm font-medium mb-2">Preview:</h3>
@@ -148,7 +148,7 @@ export default function SongVotingPage() {
           )}
         </div>
 
-        {/* Queue */}
+        
         <div>
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-xl font-semibold">Up Next</h2>

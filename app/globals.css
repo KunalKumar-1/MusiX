@@ -118,3 +118,100 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 3s ease infinite;
+}
+
+@keyframes gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, #af62f7, #ff349a, #3482ff, #1fe768);
+  background-size: 800% 800%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-move 8.5s ease infinite;
+}
+
+.glow-text {
+  position: relative;
+  text-shadow:
+    0 0 6px rgba(236, 72, 153, 0.4),
+    0 0 12px rgba(168, 85, 247, 0.3),
+    0 0 18px rgba(239, 68, 68, 0.25);
+}
+
+.glass-bg {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes morphShape {
+  0% {
+    transform: scale(1) rotate(0deg);
+    background-color: rgba(255, 99, 132, 0.2);
+  }
+  25% {
+    transform: scale(1.2) rotate(45deg);
+    background-color: rgba(35, 167, 255, 0.2);
+  }
+  50% {
+    transform: scale(1) rotate(90deg);
+    background-color: rgba(255, 159, 64, 0.2);
+  }
+  75% {
+    transform: scale(0.8) rotate(135deg);
+    background-color: rgba(69, 232, 232, 0.2);
+  }
+  100% {
+    transform: scale(1) rotate(180deg);
+    background-color: rgba(153, 102, 255, 0.2);
+  }
+}
+
+.morphing-background {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 60%;
+  animation: morphShape 15s infinite;
+}
+
+@keyframes morphColors {
+  0% {
+    background-color: rgba(59, 130, 246, 0.4); 
+  }
+  25% {
+    background-color: rgba(134, 239, 172, 0.4); 
+  }
+  50% {
+    background-color: rgba(248, 113, 113, 0.4); 
+  }
+  75% {
+    background-color: rgba(255, 205, 85, 0.4); 
+  }
+  100% {
+    background-color: rgba(59, 130, 246, 0.4); 
+  }
+}
